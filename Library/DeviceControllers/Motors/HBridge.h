@@ -14,25 +14,60 @@
 #include <inttypes.h>
 
 namespace DeviceControllers {
-	/**
-	 *	The HBridge class handles the functionality for controlling the
-	 *	reversable flow of DC current through a specalized IC. The IC 
-	 *	can vary but the basic configuration is either 2 or 3 pins to
-	 *	control the flow for the rotating motor.
-	 */
-	class HBridge {
-		public:
-			HBridge() {};
-			HBridge(uint8_t i1, uint8_t i2, uint8_t c=255);
-			void forward();
-			void reverse();
-			void disable();
-			void enable();
-			void stop();
-		protected:
-			uint8_t pin1;
-			uint8_t pin2;
-			uint8_t pinc;
-	};
+
+    /**
+     *	The HBridge class handles the functionality for controlling the
+     *	reversable flow of DC current through a specalized IC. The IC 
+     *	can vary but the basic configuration is either 2 or 3 pins to
+     *	control the flow for the rotating motor.
+     */
+    class HBridge {
+        public:
+
+            /**
+             * Default Constructor
+             */
+            HBridge() {};
+
+            /**
+             * Full HBridge constructor
+             * 
+             * @param i1    an1
+             * @param i2    an2
+             * @param c     control
+             */
+            HBridge(uint8_t i1, uint8_t i2, uint8_t c = 255);
+
+            /**
+             * Places motor in forward movement
+             */
+            void forward();
+
+            /**
+             * Places motor in reverse movement
+             */
+            void reverse();
+
+            /**
+             * Disables motor and controller
+             */
+            void disable();
+
+            /**
+             * Enables motor and controller
+             */
+            void enable();
+
+            /**
+             * Stops the motor
+             */
+            void stop();
+
+        protected:
+            // Variables
+            uint8_t pin1;
+            uint8_t pin2;
+            uint8_t pinc;
+    };
 }
 #endif

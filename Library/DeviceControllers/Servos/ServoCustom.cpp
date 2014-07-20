@@ -9,37 +9,26 @@
  */
 #include "ServoCustom.h" // include Servo library
 
-/**
- *	Steps the servo motor one step 
- *
- *	@param	int dir	-	direction to move
- *	@param	int tol	-	required minimal difference to move
- *	@param	int inc	-	value to increment by
- */
+// Moves the motor by specified amount
 int ServoCustom::move(int dir, int tol, int inc) {
-	int value = this->read();
-	if (-1*tol > dir || dir > tol) {
-		if (dir > 0) {
-			value = inc - value;
-			if (value < SERVO_LOWER) {
-				value = SERVO_LOWER;
-			}
-		} else if (dir < 0) {
-			value = inc + value;
-			if (value > SERVO_UPPER) {
-				value = SERVO_UPPER;
-			}
-		}
-		this->write(value);
-	}
+    int value = this->read();
+    if (-1 * tol > dir || dir > tol) {
+        if (dir > 0) {
+            value = inc - value;
+            if (value < SERVO_LOWER) {
+                value = SERVO_LOWER;
+            }
+        } else if (dir < 0) {
+            value = inc + value;
+            if (value > SERVO_UPPER) {
+                value = SERVO_UPPER;
+            }
+        }
+        this->write(value);
+    }
 }
 
-/**
- *	Steps the servo motor one step 
- *
- *	@param	int dir	-	direction to move
- *	@param	int tol	-	required minimal difference to move
- */
+// Moves the motor by a single step
 int ServoCustom::move(int dir, int tol) {
-	move(dir, tol, 1);
+    move(dir, tol, 1);
 }

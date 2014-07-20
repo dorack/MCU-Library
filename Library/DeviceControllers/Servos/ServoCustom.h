@@ -13,13 +13,28 @@
 #include "Arduino.h"
 #include <Servo.h> // include Servo library
 
-#define SERVO_LOWER		20
-#define SERVO_UPPER		180
+#define SERVO_LOWER     20
+#define SERVO_UPPER     180
 
 class ServoCustom : public Servo {
-	public:
-		int move(int dir, int tol);
-		int move(int dir, int tol, int inc);
+    public:
+        
+        /**
+         * Steps the servo motor one step 
+         * 
+         * @param int dir       direction to move
+         * @param int tol       required minimal difference to move
+         * @param int inc       value to increment by
+         */
+        int move(int dir, int tol);
+        
+        /**
+         * Steps the servo motor one step 
+         *
+         * @param int dir       direction to move
+         * @param int tol       required minimal difference to move
+         */
+        int move(int dir, int tol, int inc);
 };
 
 #endif
