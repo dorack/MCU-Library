@@ -1,6 +1,6 @@
 /**
- * @(#)File:           $RCSfile: IIC_Gyroscope.cpp $
- * @(#)Version:        $Revision: 0.1.0 $
+ * @(#)File:           $RCSfile: version.cpp $
+ * @(#)Version:        $Revision: 0.2.0 $
  * @(#)Last changed:   $Date: 2014/07/20 12:00:00 $
  * @(#)Purpose:        Version tracking file
  * @(#)Author:         S Handschuh
